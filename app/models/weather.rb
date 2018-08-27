@@ -1,9 +1,11 @@
+require 'net/http'
 class Weather
-    def self.get_weather_at_coordinates(coordinates)
+    def self.get_weather_at_coordinates(lat, lng)
         lat = "37.7767"
-        lon = "-122.4233"
+        lng = "-122.4233"
         
-        uri = URI.parse("https://api.darksky.net/forecast/#{ENV["DARK_SKY_API_KEY"]}/#{lat},#{lon}")
+        uri = URI.parse("https://api.darksky.net/forecast/#{ENV["DARK_SKY_API_KEY"]}/#{lat},#{lng}")
+        
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
         

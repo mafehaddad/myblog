@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :posts
-  root "home#index"
   
-  get "api/v1/weather" => "api/v1/weather#get_weather"
+  get "api/v1/get_weather" => "api/v1/weather#get_weather"
+  
+  root to: "home#index"
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
